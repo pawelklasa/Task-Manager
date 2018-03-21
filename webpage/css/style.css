@@ -1,6 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  background: linear-gradient(270deg, #fafafa, #d5d9e0);
+  background: linear-gradient(270deg, #fff, #d5d9e0);
   background-size: 400% 400%;
   -webkit-animation: AnimationName 30s ease infinite;
   -moz-animation: AnimationName 30s ease infinite;
@@ -62,4 +62,8 @@ a {
 .footer {
   color: #24212e;
   float: right;
+}
+
+.menu_links { 
+  cursor: pointer; 
 }
