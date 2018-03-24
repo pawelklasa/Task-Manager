@@ -56,7 +56,8 @@ body {
 }
 
 a {
-    color: #24212e;
+  color: #24212e;
+  min-height: 30px;
 }
 
 .footer {
