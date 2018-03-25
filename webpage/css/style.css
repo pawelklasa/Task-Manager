@@ -67,6 +67,7 @@ a {
 
 .menu_links { 
   cursor: pointer; 
+  
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
