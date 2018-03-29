@@ -50,7 +50,7 @@ function addItem(e) {
 
 function removeItem(e) {
   if(e.target.parentElement.classList.contains('delete-item')) {
-        if(confirm('Are you sure?')) {
+        if(confirm('Are you sure you want to delete this task?')) {
           e.target.parentElement.parentElement.remove();
         }
       }
