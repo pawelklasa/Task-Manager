@@ -61,7 +61,6 @@ function clearTasks() {
   while(listOfTasks.firstChild) {
     listOfTasks.removeChild(listOfTasks.firstChild);
   }
-  // https://jsperf.com/innerhtml-vs-removechild
 }
 
 // Filter tasks
