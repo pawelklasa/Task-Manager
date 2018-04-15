@@ -14,10 +14,42 @@ const filter = document.querySelector('#filter');
 runEvents();
 
 function runEvents() {
+  // DOM load event
+  document.addEventListener('DOMContentLoaded', getTasks);
+
+
   form.addEventListener('click', addItem);
   listOfTasks.addEventListener('click', removeItem);
   clearBtn.addEventListener('click', clearTasks);
   filter.addEventListener('keyup', filterTasks);
+}
+
+// Get Tasks from LS
+function getTasks() {
+  let tasks;
+  if(localStorage.getItem('tasks') === null){
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
+
+  tasks.forEach(function(task){
+    const li = document.createElement('li');
+    
+      li.className = 'collection-item';
+      
+      li.appendChild(document.createTextNode(task));
+    
+      listOfTasks.appendChild(li);
+    
+      const closeBtn = document.createElement('a');
+    
+      closeBtn.className = 'delete-item secondary-content';
+    
+      closeBtn.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
+    
+      li.appendChild(closeBtn);
+  });
 }
 
 // Functions
@@ -44,8 +76,26 @@ function addItem(e) {
 
   li.appendChild(closeBtn);
 
+  // Store in Ls
+  storeTaskInLocalStorage(task.value);
+
   e.preventDefault();
   task.value = '';
+}
+
+// storage Task
+
+function storeTaskInLocalStorage(task) {
+  let tasks;
+  if(localStorage.getItem('tasks') === null){
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
+
+  tasks.push(task);
+
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function removeItem(e) {
